@@ -15,7 +15,7 @@ Create an Android application that will get information about a language learnin
 
 ### The application:
 
-* Make network calls to a remote API resource to fetch the community data from https://tandem2019.web.app/api/community_{page}.json where page is the pagination parameter starting at `1`. There are `20` community members per page. The last page has less than `20` members. The `referenceCnt=0` means the member is `new`.
+* Make network calls to a remote API resource to fetch the community data from `https://tandem2019.web.app/api/community_{page}.json` where page is the pagination parameter starting at `1`. There are `20` community members per page. The last page has less than `20` members. The `referenceCnt=0` means the member is `new`.
 * Like reaction: The default state of a community member is <img src="assets/like_normal.png" width="18">, and changes to <img src="assets/like_selected.png" width="18"> when the user clicks on the community card (and changes back to <img src="assets/like_selected.png" width="18"> when the user clicks on <img src="assets/like_normal.png" width="18"> This state should be persisted on the device and remains after relaunching the application. 
 * Preferred tech stack: Kotlin, Jetpack, and Kotlin Coroutines
 
