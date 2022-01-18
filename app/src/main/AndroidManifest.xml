@@ -15,7 +15,7 @@
         <activity
             android:name=".presenter.activity.MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_main"
+            android:label="@string/community"
             android:theme="@style/Theme.Assignment.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
