@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import joseph.assessment.assignment.data.member.Member
 import joseph.assessment.assignment.databinding.MemberViewitemLayoutBinding
 
-class MemberListViewApapter : RecyclerView.Adapter<MemberListViewApapter.MemberItemViewHolder>() {
+class MemberListViewAdapter : RecyclerView.Adapter<MemberListViewAdapter.MemberItemViewHolder>() {
 
 
     private val list: MutableList<Member> = mutableListOf()

@@ -8,34 +8,43 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import joseph.assessment.assignment.R
+import joseph.assessment.assignment.data.member.Member
+import joseph.assessment.assignment.databinding.MemberViewitemLayoutBinding
+import joseph.assessment.assignment.databinding.MembersListFragmentBinding
 
-class MembersListFragment : Fragment() {
+class MembersListFragment : Fragment(R.layout.members_list_fragment) {
 
 
-    val viewModel by viewModels<MembersListViewModel>()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.members_list_fragment, container, false)
+    val binding by lazy {
+        MembersListFragmentBinding.inflate(layoutInflater)
     }
+    val viewModel by viewModels<MembersListViewModel>()
+    val adapter by lazy { MemberListViewAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        buildComponents()
+        buildState()
+    }
+
+    private fun buildComponents(){
+        binding.membersListRv.adapter = adapter
+    }
+
+    private fun buildState(){
         viewModel.uiState.observe(viewLifecycleOwner){
-             when(it){
-               is  MembersListViewModel.MembersListUIState.Content -> updateUI()
-               is  MembersListViewModel.MembersListUIState.Error -> showDialog()
-             }
+            when(it){
+                is  MembersListViewModel.MembersListUIState.Content -> updateUI(it.list as MutableList<Member>)
+                is  MembersListViewModel.MembersListUIState.Error -> showDialog(it.message)
+            }
         }
     }
 
-    fun updateUI(){
-
+    fun updateUI(list : MutableList<Member>){
+        adapter.setList(list)
     }
 
-    fun showDialog(){
+    fun showDialog(msg:String){
 
     }
 

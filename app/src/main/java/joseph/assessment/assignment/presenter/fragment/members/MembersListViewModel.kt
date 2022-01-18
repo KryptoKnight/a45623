@@ -12,12 +12,15 @@ import kotlinx.coroutines.withContext
 
 class MembersListViewModel : ViewModel() {
 
+
+
+
     private val _uiState = MutableLiveData<MembersListUIState>()
     val uiState: LiveData<MembersListUIState> = _uiState
 
     private val exceptionHandler = CoroutineExceptionHandler { _, exception ->
         //Timber.e(exception)
-
+        exception.let { _uiState.postValue(MembersListUIState.Error(it.localizedMessage)) }
     }
 
 

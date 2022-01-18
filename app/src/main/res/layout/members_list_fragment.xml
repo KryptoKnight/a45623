@@ -8,12 +8,14 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/members_list_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="5"
         tools:listitem="@layout/member_viewitem_layout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
