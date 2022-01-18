@@ -4,4 +4,18 @@ import androidx.lifecycle.ViewModel
 
 class MembersListViewModel : ViewModel() {
     // TODO: Implement the ViewModel
+
+
+
+
+
+    public fun fetchMembers(){
+
+    }
+
+
+    sealed class MembersListUIState{
+
+    }
+
 }

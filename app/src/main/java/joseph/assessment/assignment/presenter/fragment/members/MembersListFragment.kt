@@ -6,15 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import joseph.assessment.assignment.R
 
 class MembersListFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MembersListFragment()
-    }
 
-    private lateinit var viewModel: MembersListViewModel
+    val viewModel by viewModels<MembersListViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,10 +21,6 @@ class MembersListFragment : Fragment() {
         return inflater.inflate(R.layout.members_list_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MembersListViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
 }
