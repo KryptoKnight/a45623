@@ -52,7 +52,6 @@ class MembersListFragment : Fragment(R.layout.members_list_fragment) {
     }
 
     fun updateUI(list : MutableList<Member>){
-        Toast.makeText(requireContext(),"${list}",Toast.LENGTH_LONG).show()
         adapter.setList(list)
         adapter.notifyDataSetChanged()
         stopSwipe()

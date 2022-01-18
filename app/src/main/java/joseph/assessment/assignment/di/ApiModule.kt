@@ -25,7 +25,6 @@ val apiModule = module {
         OkHttpClient.Builder().apply {
              readTimeout(60, TimeUnit.SECONDS)
             connectTimeout(60, TimeUnit.SECONDS)
-            addInterceptor{get()}
 
         }.build()
     }
@@ -39,6 +38,7 @@ val apiModule = module {
             } else {
                 HttpLoggingInterceptor.Level.BODY
             }
+
         }
     } bind Interceptor::class
 
