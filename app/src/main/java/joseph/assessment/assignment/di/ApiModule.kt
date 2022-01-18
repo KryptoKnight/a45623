@@ -9,6 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.bind
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
@@ -16,7 +17,7 @@ val apiModule = module {
     single {
         Retrofit.Builder()
             .baseUrl("https://tandem2019.web.app")
-            .client(get())
+            .client(get()).addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
@@ -36,7 +37,7 @@ val apiModule = module {
             level = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor.Level.BODY
             } else {
-                HttpLoggingInterceptor.Level.NONE
+                HttpLoggingInterceptor.Level.BODY
             }
         }
     } bind Interceptor::class
