@@ -42,6 +42,7 @@ class MembersListFragment : Fragment(R.layout.members_list_fragment) {
 
     fun updateUI(list : MutableList<Member>){
         adapter.setList(list)
+        adapter.notifyDataSetChanged()
     }
 
     fun showDialog(msg:String){

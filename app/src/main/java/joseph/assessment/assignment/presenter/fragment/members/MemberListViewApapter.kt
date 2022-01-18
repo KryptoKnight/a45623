@@ -39,7 +39,7 @@ class MemberListViewAdapter : RecyclerView.Adapter<MemberListViewAdapter.MemberI
 
             fun bind(member:Member){
                 binding.apply {
-
+                binding.textView2.text = "ffffffffffffffff"
                 }
             }
 

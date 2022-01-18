@@ -30,6 +30,8 @@ class MembersListViewModel(val api: TandemApi) : ViewModel() {
         viewModelScope.launch(exceptionHandler) {
             withContext(Dispatchers.IO) {
                 val body = api.fetchMemberProfiles()
+                body.response?.let { _uiState.postValue(MembersListUIState.Content(it)) }
+
             }
         }
     }
