@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import joseph.assessment.assignment.data.member.Member
 import joseph.assessment.assignment.databinding.MemberViewitemLayoutBinding
+import joseph.assessment.assignment.domain.api.TandemApi
 
 class MemberListViewAdapter : RecyclerView.Adapter<MemberListViewAdapter.MemberItemViewHolder>() {
 

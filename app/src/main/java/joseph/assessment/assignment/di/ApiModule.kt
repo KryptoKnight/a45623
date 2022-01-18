@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 val apiModule = module {
     single {
         Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://tandem2019.web.app")
             .client(get())
             .build()
     }

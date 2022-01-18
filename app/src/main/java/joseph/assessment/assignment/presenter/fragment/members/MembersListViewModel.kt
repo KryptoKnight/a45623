@@ -5,12 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import joseph.assessment.assignment.data.member.Member
+import joseph.assessment.assignment.domain.api.TandemApi
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MembersListViewModel : ViewModel() {
+class MembersListViewModel(val api: TandemApi) : ViewModel() {
 
 
 
@@ -28,7 +29,7 @@ class MembersListViewModel : ViewModel() {
     public fun fetchMembers(){
         viewModelScope.launch(exceptionHandler) {
             withContext(Dispatchers.IO) {
-
+                val body = api.fetchMemberProfiles()
             }
         }
     }
