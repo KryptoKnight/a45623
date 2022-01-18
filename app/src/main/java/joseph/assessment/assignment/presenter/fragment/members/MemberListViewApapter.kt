@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import joseph.assessment.assignment.R
 import joseph.assessment.assignment.data.member.Member
 import joseph.assessment.assignment.databinding.MemberViewitemLayoutBinding
 import joseph.assessment.assignment.domain.api.TandemApi
@@ -47,7 +49,11 @@ class MemberListViewAdapter : RecyclerView.Adapter<MemberListViewAdapter.MemberI
                   topicTv.text = member.topic
                   nativesContent.text = member.natives.reduce{acc,next->"$acc, $next"}
                   learnsContent.text = member.learns.reduce{acc,next->"$acc, $next"}
-
+                    Glide
+                        .with(this.refCount)
+                        .load(member.pictureUrl)
+                        .centerCrop()
+                        .into(profileImage);
                 }
             }
 
