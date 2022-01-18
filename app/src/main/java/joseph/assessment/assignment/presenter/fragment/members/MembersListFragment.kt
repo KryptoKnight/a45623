@@ -20,7 +20,7 @@ class MembersListFragment : Fragment(R.layout.members_list_fragment) {
 
 
     private val binding by viewBinding ( MembersListFragmentBinding::bind )
-    private val viewModel:MembersListViewModel  by viewModel<MembersListViewModel>()
+    private val viewModel:MembersListViewModel  by viewModel()
     private val adapter by lazy { MemberListViewAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

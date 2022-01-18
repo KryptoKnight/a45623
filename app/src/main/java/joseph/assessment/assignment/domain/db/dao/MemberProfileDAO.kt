@@ -12,8 +12,8 @@ import joseph.assessment.assignment.data.member.Member
 interface MemberProfileDAO{
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addMembers(vararg members:Member)
+    suspend fun addMembers(vararg members:MemberEntity)
 
     @Query("Select * from MemberEntity")
-    suspend fun fetchAllMembers() : LiveData<List<Member>>
+    fun fetchAllMembers() : LiveData<List<MemberEntity>>
 }

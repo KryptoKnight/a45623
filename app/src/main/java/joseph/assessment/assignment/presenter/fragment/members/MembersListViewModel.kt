@@ -4,14 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import joseph.assessment.assignment.data.db.MemberEntity
 import joseph.assessment.assignment.data.member.Member
 import joseph.assessment.assignment.domain.api.TandemApi
+import joseph.assessment.assignment.domain.db.AppRoomDatabase
+import joseph.assessment.assignment.domain.db.dao.MemberProfileDAO
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MembersListViewModel(private val api: TandemApi) : ViewModel() {
+class MembersListViewModel(private val api: TandemApi,private val memberDao:AppRoomDatabase) : ViewModel() {
 
 
 
@@ -30,7 +33,11 @@ class MembersListViewModel(private val api: TandemApi) : ViewModel() {
         viewModelScope.launch(exceptionHandler) {
             withContext(Dispatchers.IO) {
                 val body = api.fetchMemberProfiles()
-                body.response?.let { _uiState.postValue(MembersListUIState.Content(it)) }
+
+                body.response?.let { it ->
+                    _uiState.postValue(MembersListUIState.Content(it))
+                    memberDao.getMemberDAO().addMembers(*it.map { member-> MemberEntity(member.firstName) }.toTypedArray())
+                }
 
             }
         }

@@ -1,6 +1,7 @@
 package joseph.assessment.assignment.di
 
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import joseph.assessment.assignment.BuildConfig
 import joseph.assessment.assignment.domain.api.TandemApi
 import joseph.assessment.assignment.domain.db.AppRoomDatabase
@@ -23,7 +24,7 @@ val dbModule = module {
             .build()
     }
 
-    single {
-        get<AppRoomDatabase>().getMemberDAO()
-    }
+//    single {
+//        (get<RoomDatabase>() as AppRoomDatabase).getMemberDAO()
+//    }
 }
