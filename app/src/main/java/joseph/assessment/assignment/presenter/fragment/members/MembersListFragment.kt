@@ -11,24 +11,35 @@ import joseph.assessment.assignment.R
 import joseph.assessment.assignment.data.member.Member
 import joseph.assessment.assignment.databinding.MemberViewitemLayoutBinding
 import joseph.assessment.assignment.databinding.MembersListFragmentBinding
+import org.koin.*;
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MembersListFragment : Fragment(R.layout.members_list_fragment) {
 
 
-    val binding by lazy {
+    private val binding by lazy {
         MembersListFragmentBinding.inflate(layoutInflater)
     }
-    val viewModel by viewModels<MembersListViewModel>()
-    val adapter by lazy { MemberListViewAdapter() }
+    private val viewModel:MembersListViewModel  by viewModel<MembersListViewModel>()
+    private val adapter by lazy { MemberListViewAdapter() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         buildComponents()
         buildState()
+
     }
 
     private fun buildComponents(){
+        print("kkkkkkkkkkkkkkkkkkkkkkkkkkkk")
         binding.membersListRv.adapter = adapter
+        binding.swipeRefreshWidget.setOnRefreshListener { viewModel.fetchMembers() }
+        binding.button.setOnClickListener { viewModel.fetchMembers() }
     }
 
     private fun buildState(){
@@ -38,6 +49,7 @@ class MembersListFragment : Fragment(R.layout.members_list_fragment) {
                 is  MembersListViewModel.MembersListUIState.Error -> showDialog(it.message)
             }
         }
+        viewModel.fetchMembers()
     }
 
     fun updateUI(list : MutableList<Member>){
@@ -48,6 +60,8 @@ class MembersListFragment : Fragment(R.layout.members_list_fragment) {
     fun showDialog(msg:String){
 
     }
+
+
 
 
 }

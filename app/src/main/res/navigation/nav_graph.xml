@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/membersListFragment">
+
+
     <fragment
         android:id="@+id/membersListFragment"
         android:name="joseph.assessment.assignment.presenter.fragment.members.MembersListFragment"

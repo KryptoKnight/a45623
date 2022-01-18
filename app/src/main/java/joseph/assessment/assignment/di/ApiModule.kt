@@ -22,9 +22,9 @@ val apiModule = module {
 
     single {
         OkHttpClient.Builder().apply {
-            certificatePinner(get())
              readTimeout(60, TimeUnit.SECONDS)
             connectTimeout(60, TimeUnit.SECONDS)
+            addInterceptor{get()}
 
         }.build()
     }

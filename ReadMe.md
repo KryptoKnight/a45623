@@ -10,6 +10,7 @@ Teck stack
 6) Flavors
 7) NavGraph
 8) ViewModels
+9) SwipeToRefresh
 
 
 Teck stacks that were ignored and why

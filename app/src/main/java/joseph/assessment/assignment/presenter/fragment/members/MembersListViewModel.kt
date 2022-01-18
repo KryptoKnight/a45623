@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MembersListViewModel(val api: TandemApi) : ViewModel() {
+class MembersListViewModel(private val api: TandemApi) : ViewModel() {
 
 
 
