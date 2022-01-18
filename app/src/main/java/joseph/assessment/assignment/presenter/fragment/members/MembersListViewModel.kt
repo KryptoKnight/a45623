@@ -1,4 +1,4 @@
-package joseph.assessment.assignment.presenter.fragment
+package joseph.assessment.assignment.presenter.fragment.members
 
 import androidx.lifecycle.ViewModel
 

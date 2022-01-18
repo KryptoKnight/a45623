@@ -8,6 +8,8 @@ Teck stack
 4) Retrofit
 5)Coroutine
 6) Flavors
+7) NavGraph
+8) ViewModels
 
 
 Teck stacks that were ignored and why
