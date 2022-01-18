@@ -21,6 +21,23 @@ class MembersListFragment : Fragment() {
         return inflater.inflate(R.layout.members_list_fragment, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.uiState.observe(viewLifecycleOwner){
+             when(it){
+               is  MembersListViewModel.MembersListUIState.Content -> updateUI()
+               is  MembersListViewModel.MembersListUIState.Error -> showDialog()
+             }
+        }
+    }
+
+    fun updateUI(){
+
+    }
+
+    fun showDialog(){
+
+    }
 
 
 }
