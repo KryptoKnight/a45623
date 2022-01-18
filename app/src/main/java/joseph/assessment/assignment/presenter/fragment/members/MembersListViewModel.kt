@@ -14,9 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MembersListViewModel(private val api: TandemApi,private val memberDao:AppRoomDatabase) : ViewModel() {
-
-
+class MembersListViewModel(private val api: TandemApi, private val memberDao: AppRoomDatabase) :
+    ViewModel() {
 
 
     private val _uiState = MutableLiveData<MembersListUIState>()
@@ -28,15 +27,24 @@ class MembersListViewModel(private val api: TandemApi,private val memberDao:AppR
     }
 
 
-
-    public fun fetchMembers(){
+    public fun fetchMembers() {
         viewModelScope.launch(exceptionHandler) {
             withContext(Dispatchers.IO) {
                 val body = api.fetchMemberProfiles()
 
                 body.response?.let { it ->
                     _uiState.postValue(MembersListUIState.Content(it))
-                    memberDao.getMemberDAO().addMembers(*it.map { member-> MemberEntity(member.firstName) }.toTypedArray())
+                    memberDao.getMemberDAO()
+                        .addMembers(*it.map { member ->
+                            MemberEntity(
+                                member.firstName,
+                                member.topic,
+                                member.pictureUrl,
+                                member.natives,
+                                member.learns,
+                                member.referenceCnt
+                            )
+                        }.toTypedArray())
                 }
 
             }
@@ -44,9 +52,9 @@ class MembersListViewModel(private val api: TandemApi,private val memberDao:AppR
     }
 
 
-    sealed class MembersListUIState{
-       public data class Content(val list:List<Member>): MembersListUIState()
-        data class Error(val message:String):MembersListUIState()
+    sealed class MembersListUIState {
+        public data class Content(val list: List<Member>) : MembersListUIState()
+        data class Error(val message: String) : MembersListUIState()
     }
 
 }

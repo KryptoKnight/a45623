@@ -6,7 +6,12 @@ import joseph.assessment.assignment.data.member.Member
 
 
 @Entity
-class MemberEntity(var firstname:String){
-    @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
-}
+class MemberEntity(
+    val firstName: String,
+    val topic: String,
+    val pictureUrl: String,
+    val natives: List<String>,
+    val learns: List<String>,
+    val referenceCnt: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
+)

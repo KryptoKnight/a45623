@@ -2,6 +2,7 @@ package joseph.assessment.assignment.presenter.fragment.members
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import joseph.assessment.assignment.data.member.Member
 import joseph.assessment.assignment.databinding.MemberViewitemLayoutBinding
@@ -39,7 +40,14 @@ class MemberListViewAdapter : RecyclerView.Adapter<MemberListViewAdapter.MemberI
 
             fun bind(member:Member){
                 binding.apply {
-                binding.textView2.text = "ffffffffffffffff"
+                  profileName.text = member.firstName
+                  newBadge.isVisible = member.referenceCnt == 0
+                  refCount.isVisible = member.referenceCnt != 0
+                  refCount.text = member.referenceCnt.toString()
+                  topicTv.text = member.topic
+                  nativesContent.text = member.natives.reduce{acc,next->"$acc, $next"}
+                  learnsContent.text = member.learns.reduce{acc,next->"$acc, $next"}
+
                 }
             }
 
