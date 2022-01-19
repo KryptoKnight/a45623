@@ -8,7 +8,7 @@ import joseph.assessment.assignment.data.db.MemberEntity
 import joseph.assessment.assignment.domain.db.converters.StringListConverter
 import joseph.assessment.assignment.domain.db.dao.MemberProfileDAO
 
-@Database(version = 3,entities = [MemberEntity::class],exportSchema = false)
+@Database(version = 4,entities = [MemberEntity::class],exportSchema = false)
 @TypeConverters(StringListConverter::class)
 abstract class AppRoomDatabase :RoomDatabase(){
 

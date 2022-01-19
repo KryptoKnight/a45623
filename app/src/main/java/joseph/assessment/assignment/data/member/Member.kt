@@ -6,5 +6,6 @@ open class Member(
     val pictureUrl:String,
     val natives:List<String>,
     val learns:List<String>,
-    val referenceCnt:Int
+    val referenceCnt:Int,
+    val liked:Boolean = false
     )

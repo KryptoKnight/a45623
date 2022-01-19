@@ -13,5 +13,6 @@ class MemberEntity(
     val natives: List<String>,
     val learns: List<String>,
     val referenceCnt: Int,
+    val liked:Boolean = false,
     @PrimaryKey(autoGenerate = true) var id: Int = 0
 )
