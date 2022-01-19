@@ -36,9 +36,10 @@ class MembersListFragment : Fragment(R.layout.members_list_fragment) {
     }
 
     private fun buildComponents(){
-        binding.membersListRv.adapter = adapter
-        binding.swipeRefreshWidget.setOnRefreshListener { viewModel.fetchMembers() }
-        binding.button.setOnClickListener { viewModel.fetchMembers() }
+        binding.apply{
+            membersListRv.adapter = adapter
+            binding.swipeRefreshWidget.setOnRefreshListener { viewModel.fetchMembers() }
+        }
     }
 
     private fun buildState(){
