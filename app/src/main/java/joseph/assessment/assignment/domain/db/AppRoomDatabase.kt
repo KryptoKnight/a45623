@@ -6,6 +6,7 @@ import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import joseph.assessment.assignment.data.db.MemberEntity
 import joseph.assessment.assignment.domain.db.converters.StringListConverter
+import joseph.assessment.assignment.domain.db.dao.LikeDAO
 import joseph.assessment.assignment.domain.db.dao.MemberProfileDAO
 
 @Database(version = 4,entities = [MemberEntity::class],exportSchema = false)
@@ -13,4 +14,6 @@ import joseph.assessment.assignment.domain.db.dao.MemberProfileDAO
 abstract class AppRoomDatabase :RoomDatabase(){
 
     abstract fun getMemberDAO() : MemberProfileDAO
+
+    abstract fun getLikeDAO() : LikeDAO
 }

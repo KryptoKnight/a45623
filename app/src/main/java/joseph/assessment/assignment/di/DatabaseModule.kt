@@ -24,7 +24,12 @@ val dbModule = module {
             .build()
     }
 
-//    single {
-//        (get<RoomDatabase>() as AppRoomDatabase).getMemberDAO()
-//    }
+    single {
+        (get<RoomDatabase>() as AppRoomDatabase).getMemberDAO()
+    }
+
+    single {
+        get<AppRoomDatabase>().getLikeDAO()
+    }
+
 }
