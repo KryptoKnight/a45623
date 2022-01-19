@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import joseph.assessment.assignment.data.db.MemberEntity
-import joseph.assessment.assignment.data.member.Member
 
 @Dao
 interface MemberProfileDAO{

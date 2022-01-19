@@ -5,10 +5,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import joseph.assessment.assignment.R
-import joseph.assessment.assignment.data.member.Member
+import joseph.assessment.assignment.data.member.model.Member
 import joseph.assessment.assignment.databinding.MemberViewitemLayoutBinding
-import joseph.assessment.assignment.domain.api.TandemApi
 
 class MemberListViewAdapter : RecyclerView.Adapter<MemberListViewAdapter.MemberItemViewHolder>() {
 
@@ -40,7 +38,7 @@ class MemberListViewAdapter : RecyclerView.Adapter<MemberListViewAdapter.MemberI
     class MemberItemViewHolder(val binding: MemberViewitemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(member:Member){
+            fun bind(member: Member){
                 binding.apply {
                   profileName.text = member.firstName
                   newBadge.isVisible = member.referenceCnt == 0

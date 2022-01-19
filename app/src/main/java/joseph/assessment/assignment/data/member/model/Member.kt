@@ -1,4 +1,4 @@
-package joseph.assessment.assignment.data.member
+package joseph.assessment.assignment.data.member.model
 
 open class Member(
     val firstName:String,

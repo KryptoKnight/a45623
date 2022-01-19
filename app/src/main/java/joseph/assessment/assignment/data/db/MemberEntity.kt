@@ -2,7 +2,6 @@ package joseph.assessment.assignment.data.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import joseph.assessment.assignment.data.member.Member
 
 
 @Entity
